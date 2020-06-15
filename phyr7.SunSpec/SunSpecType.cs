@@ -3,7 +3,7 @@ using System.Numerics;
 
 // ReSharper disable BuiltInTypeReferenceStyle
 
-namespace Smdx2CSharp
+namespace phyr7.SunSpec
 {
     public static class SunSpecType
     {

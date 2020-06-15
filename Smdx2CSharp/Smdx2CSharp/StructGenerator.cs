@@ -6,17 +6,18 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using IctBaden.Framework.Types;
+using phyr7.SunSpec;
 
 namespace Smdx2CSharp
 {
-    public class ClassGenerator
+    public class StructGenerator
     {
         private readonly string _outputPath;
         private readonly IEnumerable<XmlNode> _data;
         private readonly IEnumerable<XmlNode> _descriptions;
         private readonly StringBuilder _codeText;
 
-        public ClassGenerator(string outputPath, IEnumerable<XmlNode> data)
+        public StructGenerator(string outputPath, IEnumerable<XmlNode> data)
         {
             _outputPath = outputPath;
             _data = data;
@@ -26,12 +27,12 @@ namespace Smdx2CSharp
                 .Cast<XmlNode>();
         }
         
-        public void CreateModelClass()
+        public void CreateModelStruct()
         {
             var model = _data.First(n => n.Name == "model");
             if(model == null) return;
 
-            var name = model.Attributes["name"]?.InnerText;
+            var name = model.Attributes["name"]?.InnerText ?? "";
 
             if (string.IsNullOrEmpty(name))
             {
@@ -41,39 +42,59 @@ namespace Smdx2CSharp
                 var getName = new Regex(@" *\d+\: *(.*) *").Match(comment);
                 if (getName.Success)
                 {
-                    name = getName.Groups[1].Value
-                        .Trim()
-                        .Replace(" ", "_");
+                    name = getName.Groups[1].Value;
                 }
             }
-            
-            var className = NamingConverter.SnakeToPascalCase(name);
-            var fileName = Path.Combine(_outputPath, $"{className}.cs");
-            CreateClassFile(fileName, className, model);
+
+            name = name.Trim()
+                .Replace(" ", "_")
+                .Replace("-", "_");
+
+            var structName = NamingConverter.SnakeToPascalCase(name);
+            var fileName = Path.Combine(_outputPath, $"{structName}.cs");
+            CreateModelFile(fileName, structName, model);
         }
 
-        private void CreateClassFile(string fileName, string className, XmlNode model)
+        private void CreateModelFile(string fileName, string structName, XmlNode model)
         {
             var id = UniversalConverter.ConvertTo<long>(model.Attributes["id"].InnerText);
             var length = UniversalConverter.ConvertTo<long>(model.Attributes["len"].InnerText);
 
-            if (className == "Common" && id != 1)
+            if (structName == "Common" && id != 1)
             {
                 // Test Model
                 return;
             }
 
-            Console.WriteLine($"Generating class {className}");
+            Console.WriteLine($"Generating struct {structName}");
             
+            foreach (var @using in GeneratorSettings.Usings)
+            {
+                _codeText.AppendLine($"using {@using};");
+            }
+            _codeText.AppendLine();
+            
+            _codeText.AppendLine("// ReSharper disable InconsistentNaming");
+            _codeText.AppendLine("// ReSharper disable IdentifierTypo");
+            _codeText.AppendLine("// ReSharper disable CommentTypo");
+            _codeText.AppendLine("// ReSharper disable UnusedType.Global");
+            _codeText.AppendLine("// ReSharper disable UnusedMember.Global");
+            _codeText.AppendLine("// ReSharper disable MemberCanBePrivate.Global");
+            _codeText.AppendLine("// ReSharper disable UnusedAutoPropertyAccessor.Local");
+            _codeText.AppendLine("// ReSharper disable ArgumentsStyleLiteral");
+            _codeText.AppendLine("// ReSharper disable BuiltInTypeReferenceStyle");
+            
+
             _codeText.AppendLine($"namespace {GeneratorSettings.Namespace}");
             _codeText.AppendLine("{");
             {
                 AddComment("  ", null);
                 
                 _codeText.AppendLine($"  [SunSpecModel(id: {id}, length: {length})]");
-                _codeText.AppendLine($"  public class {className}");
+                _codeText.AppendLine($"  public struct {structName}");
                 _codeText.AppendLine("  {");
                 {
+                    var repeating = 1;
                     var blocks = model.ChildNodes
                         .Cast<XmlNode>()
                         .Where(n => n.Name == "block")
@@ -81,12 +102,17 @@ namespace Smdx2CSharp
 
                     foreach (var block in blocks)
                     {
-                        var blockName = block.Attributes["name"]?.InnerText;
+                        var blockName = block.Attributes["name"]?.InnerText ?? $"Block{repeating++}";
                         var blockType = block.Attributes["type"]?.InnerText ?? "fixed";
                         var points = block
                             .ChildNodes
                             .Cast<XmlNode>();
 
+                        blockName = blockName.Trim()
+                            .Replace(" ", "_")
+                            .Replace("-", "_");
+
+                        
                         if (blockType == "fixed")
                         {
                             AddPoints("    ", points);
@@ -94,10 +120,11 @@ namespace Smdx2CSharp
                         else
                         {
                             blockName = NamingConverter.SnakeToPascalCase(blockName);
-                            _codeText.AppendLine($"    public struct {blockName}");
+                            _codeText.AppendLine($"    public struct S_{blockName}");
                             _codeText.AppendLine("    {");
                             AddPoints("      ", points);
-                            _codeText.AppendLine("    }[];");
+                            _codeText.AppendLine("    };");
+                            _codeText.AppendLine($"    public S_{blockName}[] {blockName};");
                         }
                     }
 
@@ -160,6 +187,8 @@ namespace Smdx2CSharp
             foreach (var val in values)
             {
                 var eName = val.Attributes["id"].InnerText
+                    .Replace("%", "Percent")
+                    .Replace(" ", "_")
                     .Replace("-", "_");
                 _codeText.AppendLine($"{indent}  {eName} = {val.InnerText},");
             }

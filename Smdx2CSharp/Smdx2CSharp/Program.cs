@@ -42,7 +42,9 @@ namespace Smdx2CSharp
                 });
             }
             
-            var output = Path.Combine(ApplicationInfo.ApplicationDirectory, "cs");
+            var output = args.Length > 1 
+                ? args[1]
+                : Path.Combine(ApplicationInfo.ApplicationDirectory, "cs");
             if(!Directory.Exists(output))
             {
                 Directory.CreateDirectory(output);
@@ -58,8 +60,8 @@ namespace Smdx2CSharp
                 data.Load(model);
 
                 var sunSpecModels = data.ChildNodes[0];
-                var generator = new ClassGenerator(output, sunSpecModels.ChildNodes.Cast<XmlNode>());
-                generator.CreateModelClass();
+                var generator = new StructGenerator(output, sunSpecModels.ChildNodes.Cast<XmlNode>());
+                generator.CreateModelStruct();
             }
 
             Console.WriteLine("Class generation done.");

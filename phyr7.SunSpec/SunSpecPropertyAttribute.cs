@@ -1,8 +1,9 @@
 ﻿using System;
+
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace Smdx2CSharp
+namespace phyr7.SunSpec
 {
     // ReSharper disable once UnusedType.Global
     public class SunSpecPropertyAttribute : Attribute

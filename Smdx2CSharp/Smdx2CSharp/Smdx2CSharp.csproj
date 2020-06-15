@@ -11,4 +11,10 @@
       <PackageReference Include="IctBaden.Framework" Version="1.0.19" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Include="..\..\phyr7.SunSpec\SunSpecType.cs">
+        <Link>SunSpecType.cs</Link>
+      </Compile>
+    </ItemGroup>
+
 </Project>
