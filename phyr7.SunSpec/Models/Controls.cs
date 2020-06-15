@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Immediate Inverter Controls 
   /// NOTES: Ref 3: 8.7.1.2, 8.7.2.2, 8.7.3.2
   [SunSpecModel(id: 123, length: 24)]
-  public class Controls
+  public struct Controls
   {
     /// [Secs]
     /// Conn_WinTms - Time window for connect/disconnect.

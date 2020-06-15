@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Include this block to allow for a proxy server
   [SunSpecModel(id: 14, length: 52)]
-  public class ProxyServer
+  public struct ProxyServer
   {
     /// name - Interface name (8 chars)
     /// Interface name (8 chars)

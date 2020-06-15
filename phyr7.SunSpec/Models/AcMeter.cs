@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Include this model for secure metering
   [SunSpecModel(id: 220, length: 43)]
-  public class AcMeter
+  public struct AcMeter
   {
     /// [A]
     /// Amps - Total AC Current
@@ -170,10 +180,11 @@ using System;
     /// NOTES: The value of N must be at least 4 (64 bits)
     [SunSpecProperty(offset: 41, length: 1)]
     public UInt16 N { get; private set; }
-    public struct 
+    public struct S_Block2
     {
       [SunSpecProperty(offset: 0, length: 1)]
       public UInt16 DS { get; private set; }
-    }[];
+    };
+    public S_Block2[] Block2;
   }
 }

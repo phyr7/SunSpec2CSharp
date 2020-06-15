@@ -1,8 +1,18 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 64101, length: 7)]
-  public class Eltek
+  public struct Eltek
   {
     [SunSpecProperty(offset: 0, length: 1)]
     public UInt16? Eltek_Country_Code { get; set; }

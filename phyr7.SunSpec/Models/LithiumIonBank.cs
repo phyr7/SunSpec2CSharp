@@ -1,8 +1,18 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 803, length: 58)]
-  public class LithiumIonBank
+  public struct LithiumIonBank
   {
     /// String Count - Number of strings in the bank.
     /// Number of strings in the bank.
@@ -118,7 +128,7 @@ using System;
     /// Scale factor for string voltage.
     [SunSpecProperty(offset: 25, length: 1)]
     public Int16? V_SF { get; set; }
-    public struct String
+    public struct S_String
     {
       /// Module Count - Count of modules in the string.
       /// Count of modules in the string.
@@ -361,6 +371,7 @@ using System;
       /// Pad register.
       [SunSpecProperty(offset: 31, length: 1)]
       public UInt16 Pad2 { get; set; }
-    }[];
+    };
+    public S_String[] String;
   }
 }

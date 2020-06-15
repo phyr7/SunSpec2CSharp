@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Inverter Controls Nameplate Ratings 
   /// NOTES: Ref 3: 8.14.3.2, Ref 4: 17
   [SunSpecModel(id: 120, length: 26)]
-  public class Nameplate
+  public struct Nameplate
   {
     public enum E_DERTyp : UInt16
     {

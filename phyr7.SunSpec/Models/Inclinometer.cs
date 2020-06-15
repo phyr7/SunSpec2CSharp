@@ -1,10 +1,21 @@
-namespace SunSpec
+using System;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Include to support orientation measurements
   [SunSpecModel(id: 304, length: 6)]
-  public class Inclinometer
+  public struct Inclinometer
   {
-    public struct Incl
+    public struct S_Incl
     {
       /// [Degrees]
       /// X - X-Axis inclination
@@ -21,6 +32,7 @@ namespace SunSpec
       /// Z-Axis inclination
       [SunSpecProperty(offset: 4, length: 1)]
       public Int32? Inclz { get; set; }
-    }[];
+    };
+    public S_Incl[] Incl;
   }
 }

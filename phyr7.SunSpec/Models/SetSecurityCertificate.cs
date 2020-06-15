@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Security model for PKI
   [SunSpecModel(id: 9, length: 93)]
-  public class SetSecurityCertificate
+  public struct SetSecurityCertificate
   {
     /// Cert_UID - User ID for this certificate
     /// User ID for this certificate
@@ -242,10 +252,11 @@ using System;
     /// Number of registers to follow for the certificate
     [SunSpecProperty(offset: 91, length: 1)]
     public UInt16 N { get; set; }
-    public struct 
+    public struct S_Block2
     {
       [SunSpecProperty(offset: 0, length: 1)]
       public UInt16 Cert { get; set; }
-    }[];
+    };
+    public S_Block2[] Block2;
   }
 }

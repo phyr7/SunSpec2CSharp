@@ -1,11 +1,21 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Include to support various irradiance measurements
   [SunSpecModel(id: 302, length: 5)]
-  public class Irradiance
+  public struct Irradiance
   {
-    public struct 
+    public struct S_Block1
     {
       /// [W/m2]
       /// GHI - Global Horizontal Irradiance
@@ -32,6 +42,7 @@ using System;
       /// Other Irradiance
       [SunSpecProperty(offset: 4, length: 1)]
       public UInt16? OTI { get; set; }
-    }[];
+    };
+    public S_Block1[] Block1;
   }
 }

@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Monitors and controls multiple trackers
   /// NOTES: Trackers may include GPS model 305 for location information
   [SunSpecModel(id: 601, length: 48)]
-  public class TrackerController
+  public struct TrackerController
   {
     /// Controller - Descriptive name for this control unit
     /// Descriptive name for this control unit
@@ -79,7 +89,7 @@ using System;
     /// Number of trackers being controlled.  Size of repeating block.
     [SunSpecProperty(offset: 25, length: 1)]
     public UInt16 N { get; set; }
-    public struct Tracker
+    public struct S_Tracker
     {
       /// Tracker - Descriptive name for this tracker unit
       /// Descriptive name for this tracker unit
@@ -140,6 +150,7 @@ using System;
       /// Tracker alarm conditions
       [SunSpecProperty(offset: 21, length: 1)]
       public E_Alm? Alm { get; set; }
-    }[];
+    };
+    public S_Tracker[] Tracker;
   }
 }

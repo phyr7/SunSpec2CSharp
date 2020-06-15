@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Inverter controls extended settings 
   [SunSpecModel(id: 145, length: 8)]
-  public class ExtSettings
+  public struct ExtSettings
   {
     /// [Pct]
     /// Ramp Up Rate - Ramp up rate as a percentage of max current.

@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Inverter Controls Extended Measurements and Status 
   /// NOTES: Ref 3: 8.14.3.2, Ref 4: 17
   [SunSpecModel(id: 122, length: 44)]
-  public class Status
+  public struct Status
   {
     [Flags]
     public enum E_PVConn : UInt16

@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Inverter Controls Basic Settings 
   /// NOTES: Ref 3: 8.4.2.1, Ref 4: 17
   [SunSpecModel(id: 121, length: 30)]
-  public class Settings
+  public struct Settings
   {
     /// [W]
     /// WMax - Setting for maximum power output. Default to WRtg.

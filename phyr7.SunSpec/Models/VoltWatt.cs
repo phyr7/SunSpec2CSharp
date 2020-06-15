@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Volt-Watt 
   /// NOTES: Ref 3: 8.12.1.2
   [SunSpecModel(id: 132, length: 64)]
-  public class VoltWatt
+  public struct VoltWatt
   {
     /// ActCrv - Index of active curve. 0=no active curve.
     /// Index of active curve. 0=no active curve.
@@ -54,7 +64,7 @@ using System;
     /// Scale factor for increment and decrement ramps.
     [SunSpecProperty(offset: 9, length: 1)]
     public Int16? RmpIncDec_SF { get; private set; }
-    public struct Curve
+    public struct S_Curve
     {
       /// ActPt - Number of active points in array.
       /// Number of active points in array.
@@ -62,8 +72,8 @@ using System;
       public UInt16 ActPt { get; set; }
       public enum E_DeptRef : UInt16
       {
-        %WMax = 1,
-        %WAval = 2,
+        PercentWMax = 1,
+        PercentWAval = 2,
       }
       /// DeptRef - Defines the meaning of the Watts DeptRef.  1=% WMax 2=% WAvail
       /// Defines the meaning of the Watts DeptRef.  1=% WMax 2=% WAvail
@@ -297,6 +307,7 @@ using System;
       /// Enumerated value indicates if curve is read-only or can be modified.
       [SunSpecProperty(offset: 53, length: 1)]
       public E_ReadOnly ReadOnly { get; private set; }
-    }[];
+    };
+    public S_Curve[] Curve;
   }
 }

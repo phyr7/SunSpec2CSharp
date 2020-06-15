@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Include to support a wired ethernet port
   [SunSpecModel(id: 11, length: 13)]
-  public class EthernetLinkLayer
+  public struct EthernetLinkLayer
   {
     /// [Mbps]
     /// Ethernet Link Speed - Interface speed in Mb/s

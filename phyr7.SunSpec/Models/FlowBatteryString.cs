@@ -1,8 +1,18 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 807, length: 58)]
-  public class FlowBatteryString
+  public struct FlowBatteryString
   {
     /// String Index - Index of the string within the bank.
     /// Index of the string within the bank.
@@ -189,7 +199,7 @@ using System;
     /// Pad register.
     [SunSpecProperty(offset: 33, length: 1)]
     public UInt16 Pad1 { get; set; }
-    public struct Module
+    public struct S_Module
     {
       /// Module Index - Index of the module within the string.
       /// Index of the module within the string.
@@ -396,6 +406,7 @@ using System;
       /// Reason why the module is currently disabled.
       [SunSpecProperty(offset: 23, length: 1)]
       public E_ModDisRsn? ModDisRsn { get; set; }
-    }[];
+    };
+    public S_Module[] Module;
   }
 }

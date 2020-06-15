@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Pricing Signal  
   /// NOTES: Ref 3: 8.7.5.1; Ref 4: 6
   [SunSpecModel(id: 125, length: 8)]
-  public class Pricing
+  public struct Pricing
   {
     [Flags]
     public enum E_ModEna : UInt16

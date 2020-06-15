@@ -1,8 +1,18 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 802, length: 62)]
-  public class Battery
+  public struct Battery
   {
     /// [Ah]
     /// Nameplate Charge Capacity - Nameplate charge capacity in amp-hours.
@@ -109,7 +119,7 @@ using System;
     public UInt16 AlmRst { get; set; }
     public enum E_Typ : UInt16
     {
-      NOT APPLICABLE_UNKNOWN = 0,
+      NOT_APPLICABLE_UNKNOWN = 0,
       LEAD_ACID = 1,
       NICKEL_METAL_HYDRATE = 2,
       NICKEL_CADMIUM = 3,
@@ -133,7 +143,7 @@ using System;
       INITIALIZING = 2,
       CONNECTED = 3,
       STANDBY = 4,
-      SOC PROTECTION = 5,
+      SOC_PROTECTION = 5,
       SUSPENDING = 6,
       FAULT = 99,
     }
@@ -295,7 +305,7 @@ using System;
     public Int16 W { get; set; }
     public enum E_ReqInvState : UInt16
     {
-      NO REQUEST = 0,
+      NO_REQUEST = 0,
       START = 1,
       STOP = 2,
     }

@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Basic Scheduling 
   /// NOTES: Ref 2: 2.2.8
   [SunSpecModel(id: 133, length: 66)]
-  public class Schedule
+  public struct Schedule
   {
     [Flags]
     public enum E_ActSchd : UInt32
@@ -66,7 +76,7 @@ using System;
     /// Pad register.
     [SunSpecProperty(offset: 5, length: 1)]
     public UInt16? Pad { get; private set; }
-    public struct 
+    public struct S_Block2
     {
       /// ActPts - Number of active entries in schedule.
       /// Number of active entries in schedule.
@@ -235,6 +245,7 @@ using System;
       /// Index of active entry in the active schedule.
       [SunSpecProperty(offset: 59, length: 1)]
       public UInt16 ActIndx { get; private set; }
-    }[];
+    };
+    public S_Block2[] Block2;
   }
 }

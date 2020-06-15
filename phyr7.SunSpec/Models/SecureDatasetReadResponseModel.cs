@@ -1,9 +1,19 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// Compute a digital signature over a specified set of data registers
   [SunSpecModel(id: 4, length: 61)]
-  public class SecureDatasetReadResponseModel
+  public struct SecureDatasetReadResponseModel
   {
     /// Request Sequence - Sequence number from the request
     /// Sequence number from the request
@@ -166,13 +176,14 @@ using System;
     /// NOTES: The value of N must be at least 4 (64 bits)
     [SunSpecProperty(offset: 59, length: 1)]
     public UInt16 N { get; private set; }
-    public struct 
+    public struct S_Block2
     {
       /// DS - Digital Signature
       /// Digital Signature
       /// NOTES: The DS covers all registers from X to N and is N registers in length
       [SunSpecProperty(offset: 0, length: 1)]
       public UInt16 DS { get; private set; }
-    }[];
+    };
+    public S_Block2[] Block2;
   }
 }

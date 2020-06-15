@@ -1,10 +1,20 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   /// An advanced string combiner including voltage and energy measurements
   /// NOTES: This model supersedes model 402
   [SunSpecModel(id: 404, length: 39)]
-  public class StringCombiner
+  public struct StringCombiner
   {
     /// Current scale factor
     [SunSpecProperty(offset: 0, length: 1)]
@@ -115,7 +125,7 @@ using System;
     /// Energy scale factor for inputs
     [SunSpecProperty(offset: 24, length: 1)]
     public Int16? InDCWh_SF { get; set; }
-    public struct String
+    public struct S_String
     {
       /// ID - Uniquely identifies this input set
       /// Uniquely identifies this input set
@@ -191,6 +201,7 @@ using System;
       /// NOTES: Configured value
       [SunSpecProperty(offset: 13, length: 1)]
       public UInt16? InN { get; set; }
-    }[];
+    };
+    public S_String[] String;
   }
 }

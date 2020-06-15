@@ -12,7 +12,7 @@ using System;
 namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 805, length: 46)]
-  public class LithiumIonModule
+  public struct LithiumIonModule
   {
     /// String Index - Index of the string containing the module.
     /// Index of the string containing the module.
@@ -132,7 +132,7 @@ namespace phyr7.SunSpec.Models
     /// Scale factor for module temperature.
     [SunSpecProperty(offset: 41, length: 1)]
     public Int16 Tmp_SF { get; set; }
-    public struct S_Lithium-ion-module-cell
+    public struct S_LithiumIonModuleCell
     {
       /// [V]
       /// Cell Voltage - Cell terminal voltage.
@@ -156,6 +156,6 @@ namespace phyr7.SunSpec.Models
       [SunSpecProperty(offset: 2, length: 1)]
       public E_CellSt? CellSt { get; set; }
     };
-    public S_Lithium-ion-module-cell[]? Lithium-ion-module-cell;
+    public S_LithiumIonModuleCell[] LithiumIonModuleCell;
   }
 }

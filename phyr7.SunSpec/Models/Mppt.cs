@@ -1,8 +1,18 @@
 using System;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable ArgumentsStyleLiteral
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace phyr7.SunSpec.Models
 {
   [SunSpecModel(id: 160, length: 28)]
-  public class Mppt
+  public struct Mppt
   {
     /// Current Scale Factor - 
     [SunSpecProperty(offset: 0, length: 1)]
@@ -52,7 +62,7 @@ using System;
     /// Timestamp Period - 
     [SunSpecProperty(offset: 7, length: 1)]
     public UInt16? TmsPer { get; set; }
-    public struct Module
+    public struct S_Module
     {
       /// Input ID - 
       [SunSpecProperty(offset: 0, length: 1)]
@@ -130,6 +140,7 @@ using System;
       /// Module Events - 
       [SunSpecProperty(offset: 18, length: 1)]
       public E_DCEvt? DCEvt { get; set; }
-    }[];
+    };
+    public S_Module[] Module;
   }
 }
