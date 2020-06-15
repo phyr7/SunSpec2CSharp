@@ -83,7 +83,7 @@ namespace Smdx2CSharp
             _codeText.AppendLine("// ReSharper disable UnusedAutoPropertyAccessor.Local");
             _codeText.AppendLine("// ReSharper disable ArgumentsStyleLiteral");
             _codeText.AppendLine("// ReSharper disable BuiltInTypeReferenceStyle");
-            
+            _codeText.AppendLine();
 
             _codeText.AppendLine($"namespace {GeneratorSettings.Namespace}");
             _codeText.AppendLine("{");

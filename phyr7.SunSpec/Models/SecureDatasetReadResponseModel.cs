@@ -9,6 +9,7 @@ using System;
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 // ReSharper disable ArgumentsStyleLiteral
 // ReSharper disable BuiltInTypeReferenceStyle
+
 namespace phyr7.SunSpec.Models
 {
   /// Compute a digital signature over a specified set of data registers

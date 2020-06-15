@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\..\phyr7.SunSpec\SunSpecType.cs">
+      <Compile Include="..\phyr7.SunSpec\SunSpecType.cs">
         <Link>SunSpecType.cs</Link>
       </Compile>
     </ItemGroup>

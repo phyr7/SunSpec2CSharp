@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smdx2CSharp", "Smdx2CSharp\Smdx2CSharp.csproj", "{1A8DED46-16EC-4E92-8307-C65C3B87E170}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "phyr7.SunSpec", "..\phyr7.SunSpec\phyr7.SunSpec.csproj", "{381A5227-485C-4DE2-84AD-4B245D31DDA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "phyr7.SunSpec", "phyr7.SunSpec\phyr7.SunSpec.csproj", "{381A5227-485C-4DE2-84AD-4B245D31DDA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
